@@ -19,6 +19,6 @@ from django.urls import path, include
 #URL情報まとめ
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('', include('pochi.urls')),
+    path('', include('pochi.urls')),
 ]
 
