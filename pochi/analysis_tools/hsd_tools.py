@@ -89,3 +89,25 @@ def PIL_to_b64(PILImage: Image, format="jpeg"):
     buffer = BytesIO()
     PILImage.save(buffer, format)
     return base64.b64encode(buffer.getvalue()).decode("ascii")
+
+def GetBoxSpectrum(HSD,x1,y1,x2,y2):
+    """
+    HSDから指定されたボックス内の平均波形を出力します
+    Parameters
+    ----------
+    x1,y1(int):選択した座標の左上
+    x2,y2(int):選択した座標の右下
+    HSD:ハイパースペクトルデータ(np.array)
+    
+    Return
+    ----------
+    mean_spectrum:平均波形(mp.array141band)
+    """
+    #2点のxy座標を大小で入れ替え
+    if x1>x2:
+          x1,x2 = x2,x1
+    if y1>y2:
+          y1,y2 = y2,y1
+    #ボックス内でトリミングして平均波形を取得
+    mean_spctrum=HSD[y1:y2,:x1:x2,:].reshape(-1,141).mean(axis=0)
+    return mean_spctrum
