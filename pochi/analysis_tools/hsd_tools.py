@@ -2,6 +2,7 @@ import base64
 import numpy as np
 from PIL import Image
 from io import BytesIO
+import matplotlib.pyplot as plt
 
 # TODO: 基本的にバッファから読み込むようにHSD系のツールを改変する
 
@@ -111,3 +112,30 @@ def GetBoxSpectrum(HSD,x1,y1,x2,y2):
     #ボックス内でトリミングして平均波形を取得
     mean_spctrum=HSD[y1:y2,:x1:x2,:].reshape(-1,141).mean(axis=0)
     return mean_spctrum
+
+def get_spectrum_PIL(HSD,coodinate_list):
+    """ 
+    param
+    -------------
+    coodinate_list: [[x1,y1,x2,y2],[x1,y1,x2,y2],[x1,y1,x2,y2].....]
+                    座標リストのリスト
+    Return
+    --------------
+    PIL_img : PIL形式の波形画像を返します
+
+    """
+    
+    fig = plt.figure(figsize = (20,10))
+    for i in coordinate_list:
+        plt.plot(GetBoxSpectrum(HSD,i[0],i[1],i[2],i[3]))
+    fig.canvas.draw()
+    # 画像をバイト列で取得する。
+    data = fig.canvas.tostring_rgb()
+    # 画像の大きさを取得する。
+    w, h = fig.canvas.get_width_height()
+    c = len(data) // (w * h)
+    print(w,h)
+    # PIL.Image に変換する
+    PIL_img = Image.frombytes("RGB", (w, h), data, "raw")
+    plt.close()
+    return PIL_img 
