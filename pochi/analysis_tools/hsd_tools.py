@@ -110,7 +110,7 @@ def GetBoxSpectrum(HSD,x1,y1,x2,y2):
     if y1>y2:
           y1,y2 = y2,y1
     #ボックス内でトリミングして平均波形を取得
-    mean_spctrum=HSD[y1:y2,:x1:x2,:].reshape(-1,141).mean(axis=0)
+    mean_spctrum=HSD[y1:y2,x1:x2,:].reshape(-1,141).mean(axis=0)
     return mean_spctrum
 
 def get_spectrum_PIL(HSD,coordinate_list,color_list):
