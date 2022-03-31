@@ -113,11 +113,11 @@ def GetBoxSpectrum(HSD,x1,y1,x2,y2):
     mean_spctrum=HSD[y1:y2,:x1:x2,:].reshape(-1,141).mean(axis=0)
     return mean_spctrum
 
-def get_spectrum_PIL(HSD,coodinate_list):
+def get_spectrum_PIL(HSD,coordinate_list,color_list):
     """ 
     param
     -------------
-    coodinate_list: [[x1,y1,x2,y2],[x1,y1,x2,y2],[x1,y1,x2,y2].....]
+    coordinate_list: [[x1,y1,x2,y2],[x1,y1,x2,y2],[x1,y1,x2,y2].....]
                     座標リストのリスト
     Return
     --------------
@@ -126,8 +126,11 @@ def get_spectrum_PIL(HSD,coodinate_list):
     """
     
     fig = plt.figure(figsize = (20,10))
+    j = 0
     for i in coordinate_list:
-        plt.plot(GetBoxSpectrum(HSD,i[0],i[1],i[2],i[3]))
+        plt.plot(GetBoxSpectrum(HSD,i[0],i[1],i[2],i[3]), color=color_list[j])
+        j += 1
+
     fig.canvas.draw()
     # 画像をバイト列で取得する。
     data = fig.canvas.tostring_rgb()

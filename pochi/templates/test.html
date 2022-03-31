@@ -1,0 +1,25 @@
+{% extends "pochi1.html" %}
+{% load static %}
+
+{% block extra_head %}
+<script src="{% static 'js/package/vue.global.prod.js' %}"></script>
+{% endblock %}
+
+{% block upload_content %}
+<main>
+    <!--アップロード画面-->
+    <div id="upload">
+        <div ref="uploadHere" id="uploadHere" style="height: 100vh; width: 100vw;">
+            <div id='ImgBeforeUpload'
+                style="width: 400px; height: 150px; color: white; font-weight: bold; background-color: red; text-align: center; line-height: 150px;">
+                ここにファイルをアップロード</div>
+        </div>
+        {% csrf_token %}
+        <input id="uploadFile" type="file" accept=".hsd" style="display:none;" required>
+    </div>
+
+</main>
+<script src="{% static 'js/uploader.js' %}"></script>
+<script src="{% static 'js/package/axios.min.js' %}"></script>
+
+{% endblock %}

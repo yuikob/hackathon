@@ -1,0 +1,28 @@
+{% extends "pochi1.html" %}
+{% load static %}
+
+{% block extra_head %}
+<link href="{% static 'css/upload-hsd.css' %}" rel="stylesheet">
+<script src="{% static 'js/package/vue.global.prod.js' %}"></script>
+{% endblock %}
+
+{% block upload_content %}
+<main id="atn">
+    <canvas id="canvas" width="640" height="480"></canvas>
+
+    <p>
+        <button @click="sendResult">結果を取得</button>
+    </p>
+
+    <img id="graph" src="" alt="" style="width: 640px; height: 480px;">
+
+    <p>
+        <button @click="downloadImages">ダウンロード</button>
+    </p>
+</main>
+
+
+<script src="{% static 'js/package/axios.min.js' %}"></script>
+<script src="{% static 'js/annotation.js' %}"></script>
+
+{% endblock %}
