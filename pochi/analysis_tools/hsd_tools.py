@@ -124,13 +124,16 @@ def get_spectrum_PIL(HSD,coordinate_list,color_list):
     PIL_img : PIL形式の波形画像を返します
 
     """
-    
+    nm_list = [350+5*i for i in range(141)]
     fig = plt.figure(figsize = (20,10))
     j = 0
     for i in coordinate_list:
-        plt.plot(GetBoxSpectrum(HSD,i[0],i[1],i[2],i[3]), color=color_list[j])
+        plt.plot(nm_list,GetBoxSpectrum(HSD,i[0],i[1],i[2],i[3]), color=color_list[j],lw=5)
         j += 1
-
+    plt.title("Mean_Spectrum",fontsizie=(25))
+    plt.legend(color_list,fontsize = 25)
+    plt.xlabel("WaveLength[nm]",fontsize=21)
+    plt.grid()
     fig.canvas.draw()
     # 画像をバイト列で取得する。
     data = fig.canvas.tostring_rgb()
