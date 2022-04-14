@@ -1,24 +1,34 @@
-{% extends "pochi1.html" %}
+{% extends "pochi.html" %}
 {% load static %}
 
 {% block extra_head %}
-<link href="{% static 'css/upload-hsd.css' %}" rel="stylesheet">
+<link href="{% static 'css/pochi.css' %}" rel="stylesheet">
 <script src="{% static 'js/package/vue.global.prod.js' %}"></script>
 {% endblock %}
 
 {% block upload_content %}
 <main id="atn">
-    <canvas id="canvas" width="640" height="480"></canvas>
+    <div style="margin-top: 100px; display: flex; justify-content: space-around;">
+        <canvas id="canvas" width="640" height="480"></canvas>
+        <div id="spectrum_list" style="width: 300px;">
+            <div v-for="(color, index) in color_list" style="display: flex; margin-top: 10px;">
+                <div :style="{'backgroundColor': color}" style="width: 30px; height: 30px;"></div>
+                <div>スペクトル[[index + 1]]</div>
+            </div>
+        </div>
+        <img class="display_none" id="graph" src="" alt="" style="width: 640px; height: 480px;">
+    </div>
+
 
     <p>
         <button @click="sendResult">結果を取得</button>
     </p>
 
-    <img id="graph" src="" alt="" style="width: 640px; height: 480px;">
 
-    <p>
+    <div style="display: flex;">
         <button @click="downloadImages">ダウンロード</button>
-    </p>
+        <a href="{% url 'upload' %}"><button>トップに戻る</button></a>
+    </div>
 </main>
 
 

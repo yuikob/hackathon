@@ -76,10 +76,9 @@ function sendHSD(file) {
             responseType: 'json'
         }
     ).then((response) => {
-        // console.log(response)
         if (response.data.status == 'success') {
             console.log('成功しました')
-            window.location.href = window.location.href.replace('test', 'annotation')
+            window.location.href = window.location.href.replace('upload', 'annotation')
         }
         else {
             alert('送信されたデータに誤りがあります')

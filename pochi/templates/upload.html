@@ -1,0 +1,29 @@
+{% extends "pochi.html" %}
+{% load static %}
+
+{% block extra_head %}
+<script src="{% static 'js/package/vue.global.prod.js' %}"></script>
+{% endblock %}
+
+{% block upload_content %}
+<div class="main">
+    <div class="workspace">
+        <div class="head-copy">HSDをそのままアノテーション</div>
+        <div class="sub-copy">HSDの指定箇所の平均スペクトルと位置情報を取得</div>
+        <div id='ImgBeforeUpload' class="red-button-big">SELECT HSD FILE</div>
+        <div class="discription">または、ここにファイルをドロップ</div>
+        <div id="uploadHere" class="upload-icon"><img src="/static/img/upload-icon.png"> </div>
+        <div class="discription2">・ファイル形式: .hsdファイル<br/>
+            ・ファイルサイズ: 最大100MB</div>
+
+        {% csrf_token %}
+        <input id="uploadFile" type="file" accept=".hsd" style="display:none;" required>
+
+        <div class="bottom"></div>
+    </div>
+</div>
+
+<script src="{% static 'js/uploader.js' %}"></script>
+<script src="{% static 'js/package/axios.min.js' %}"></script>
+
+{% endblock %}

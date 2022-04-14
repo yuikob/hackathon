@@ -5,8 +5,6 @@ atn = Vue.createApp({
     delimiters: ["[[", "]]"],
     data() {
         return {
-            // start_points: [],
-            // end_points: [],
             separated_xy: [],
             all_xy: [],
             rect_MousedownFlg: true,
@@ -41,8 +39,12 @@ atn = Vue.createApp({
                 if (response.data.status == 'success') {
                     alert('送信が完了しました')
 
+                    var spectrumList = document.getElementById("spectrum_list")
+                    spectrumList.classList.add('display_none')
+
                     // グラフの表示
                     var graphImage = document.getElementById("graph")
+                    graphImage.classList.remove('display_none')
                     graphImage.src = "data:image/jpeg;base64," + response.data.graph
 
                     // グラフのsrc情報を登録

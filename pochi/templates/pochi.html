@@ -10,14 +10,18 @@
     <link rel="stylesheet" href="{% static 'css/pochi.css' %}">
 
     {% block extra_head %}{% endblock %}
-
-
+    
 </head>
 
 <body>
-    <p class="aka">こんにちは</p>
+    <header>
+        <div class="text-center">
+            <img class="logo-position" src="/static/img/logo1.png">
+        </div>
+    </header>
     
     {% block upload_content %}{% endblock %}
+
     <script src="{% static 'js/pochi.js' %}"></script>
 </body>
 

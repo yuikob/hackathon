@@ -19,10 +19,10 @@ import numpy as np
 from io import BytesIO
 
 # Create your views here.
-class TestView(TemplateView):
+class UploadView(TemplateView):
     # HSDアップロード処理
 
-    template_name = "test.html"
+    template_name = "upload.html"
 
     def post(self, request, *args, **kwargs):
         """POSTリクエストに対する処理

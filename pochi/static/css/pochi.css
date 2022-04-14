@@ -1,3 +1,135 @@
-.aka {
-    color: red;
+body {
+  margin: 0;
+  background-color: #fffef7;
+}
+header {
+  z-index: 1000;
+  height: 64px;
+  position: absolute;
+  top: 0px;
+  background-color: rgb(255, 255, 255);
+  width: 100vw;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+}
+.text-center {
+  text-align: center;
+}
+.logo-position {
+  position: relative;
+  top: 20px;
+}
+.logo-position2 {
+  position: absolute;
+  top: 20px;
+  margin-left: 20px;
+}
+.main {
+  display: flex;
+  height: 100%;
+  margin-top: 64px;
+  overflow: hidden;
+}
+.head-copy {
+  padding-top: 30px;
+  font-size: 33px;
+  font-weight: bold;
+}
+.sub-copy {
+  padding: 10px;
+  font-size: 15px;
+}
+.red-button-big {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  margin: 20px auto;
+  width: 300px;
+  padding: 20px;
+  border: #e80000;
+  background: #e80000;
+  border-radius: 11px;
+}
+.red-button-next {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #fff;
+  width: 100px;
+  padding: 20px;
+  background: #e80000;
+  border-radius: 5px;
+}
+a:hover {
+  text-decoration: none;
+}
+a {
+  text-decoration: none;
+}
+.bottom {
+  padding: 80px;
+}
+.discription {
+  font-size: 20px;
+}
+.discription2 {
+  font-size: 15px;
+}
+.upload-icon {
+  margin: 50px auto;
+}
+footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  bottom: 0;
+  background: #fff;
+  padding: 8px 10px;
+  font-size: 12px;
+}
+.workspace {
+  text-align: center;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -ms-flex: 1 1;
+  flex: 1 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+}
+ul {
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+.hyper-annotation {
+  padding: 100px;
+}
+.sidebar {
+  display: flex;
+  padding: 0 30px;
+  background: #fff;
+  height: 700px;
+  border-left: 1px solid rgba(158, 158, 158, 0.2);
+  position: relative;
+  z-index: 10;
+}
+.group-box {
+  padding: 0;
+  width: 212px;
+  height: 38px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background: #fff;
+  z-index: 100;
+}
+.tag {
+  text-align: center;
+  padding: 10px;
+  margin-top: 5px;
+}
+.display_none {
+  display: none;
 }
